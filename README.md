@@ -2,6 +2,6 @@
 
 a budgeting app API
 
-## Deployed API
+## Deployd API
 
 https://thawing-woodland-27640.herokuapp.com/

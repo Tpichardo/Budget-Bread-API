@@ -8,7 +8,7 @@ module.exports = [
     {
         date: "2021-01-30",
         name: "Groceries",
-        amount: -110,
+        amount: -110.49,
         from: "TRADER JOES"
     },
     {
@@ -20,7 +20,7 @@ module.exports = [
     {
         date: "2021-02-02",
         name: "Green Juice",
-        amount: -3,
+        amount: -3.10,
         from: "COLUMBIA GOURMET"
     },
     {
@@ -32,13 +32,13 @@ module.exports = [
     {
         date: "2021-02-05",
         name: "Brunch",
-        amount: -56,
+        amount: -43.18,
         from: "HILLTOP PARK ALE HOUSE"
     },
     {
         date: "2021-02-11",
         name: "Green Juice",
-        amount: -3,
+        amount: -3.10,
         from: "COLUMBIA GOURMET"
     },
     {
@@ -50,13 +50,13 @@ module.exports = [
     {
         date: "2021-02-11",
         name: "Mani/Pedi",
-        amount: -50,
+        amount: -50.20,
         from: "SHANA NAILS"
     },
     {
         date: "2021-02-12",
         name: "Dinner with Mami",
-        amount: -80,
+        amount: -80.67,
         from: "BENIHANA NY WEST"
     }
 ]

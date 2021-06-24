@@ -14,7 +14,7 @@ module.exports = [
     {
         date: "2021-02-01",
         name: "Rent",
-        amount: -900,
+        amount: -954,
         from: "COZY"
     },
     {

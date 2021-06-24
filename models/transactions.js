@@ -20,7 +20,7 @@ module.exports = [
     {
         date: "2021-02-02",
         name: "Green Juice",
-        amount: -3.10,
+        amount: -3.12,
         from: "COLUMBIA GOURMET"
     },
     {
@@ -38,7 +38,7 @@ module.exports = [
     {
         date: "2021-02-11",
         name: "Green Juice",
-        amount: -3.10,
+        amount: -3.12,
         from: "COLUMBIA GOURMET"
     },
     {
@@ -50,7 +50,7 @@ module.exports = [
     {
         date: "2021-02-11",
         name: "Mani/Pedi",
-        amount: -50.20,
+        amount: -50.16,
         from: "SHANA NAILS"
     },
     {

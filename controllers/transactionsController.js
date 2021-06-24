@@ -1,6 +1,7 @@
 const express = require('express');
-const transactions = express.Router();
 const transactionsArr = require('../models/transactions');
+
+const transactions = express.Router();
 
 transactions.get('/', (req, res) => {
     res.json(transactionsArr)

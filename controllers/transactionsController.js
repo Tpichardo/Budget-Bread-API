@@ -36,7 +36,7 @@ transactions.delete('/:index', (req, res) => {
     const { index } = req.params
     if (transactionsArr[index]) {
         const deletedTransaction = transactionsArr.splice(index, 1)
-        res.json(deletedTransaction)
+        res.json(deletedTransaction[0])
     } else {
         res.redirect('/404')
     }

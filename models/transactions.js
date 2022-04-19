@@ -1,62 +1,65 @@
 module.exports = [
     {
-        date: "2021-01-26",
-        name: "Birthday",
+        transactionDate: "2021-01-26",
+        transactionName: "Birthday",
+        type: "Deposit",
         amount: 2000,
         from: "Zelle payment from EDISON PICHARDO"
     },
     {
-        date: "2021-01-30",
-        name: "Groceries",
-        amount: -110.49,
+        transactionDate: "2021-01-30",
+        transactionName: "Groceries",
+        type: "Expense",
+        amount: 110.49,
         from: "TRADER JOES"
     },
     {
-        date: "2021-02-01",
-        name: "Rent",
-        amount: -954,
+        transactionDate: "2021-02-01",
+        transactionName: "Rent",
+        type: "Expense",
+        amount: 954,
         from: "COZY"
     },
     {
-        date: "2021-02-02",
-        name: "Green Juice",
-        amount: -3.12,
+        transactionDate: "2021-02-02",
+        transactionName: "Green Juice",
+        type: "Expense",
+        amount: 3.12,
         from: "COLUMBIA GOURMET"
     },
     {
-        date: "2021-02-05",
-        name: "Salary",
-        amount: 3700,
-        from: "TWITTER"
-    },
-    {
-        date: "2021-02-05",
-        name: "Brunch",
-        amount: -43.18,
+        transactionDate: "2021-02-05",
+        transactionName: "Brunch",
+        type: "Expense",
+        amount: 43.18,
         from: "HILLTOP PARK ALE HOUSE"
     },
     {
-        date: "2021-02-11",
-        name: "Green Juice",
-        amount: -3.12,
+        transactionDate: "2021-02-11",
+        transactionName: "Green Juice",
+        type: "Expense",
+        amount: 3.12,
         from: "COLUMBIA GOURMET"
     },
     {
-        date: "2021-02-11",
-        name: "Savings, to the mooooooon!",
+        transactionDate: "2021-02-11",
+        transactionName: "Savings, to the mooooooon!",
+        type: "Deposit",
         amount: 1500,
         from: "ATM CASH DEPOSIT"
     },
     {
-        date: "2021-02-11",
-        name: "Mani/Pedi",
-        amount: -50.16,
+        transactionDate: "2021-02-11",
+        transactionName: "Mani/Pedi",
+        type: "Expense",
+        amount: 50.16,
         from: "SHANA NAILS"
     },
     {
-        date: "2021-02-12",
-        name: "Dinner with Mami",
-        amount: -80.67,
+        transactionDate: "2021-02-12",
+        transactionName: "Dinner with Mami",
+        type: "Expense",
+        amount: 80.67,
         from: "BENIHANA NY WEST"
     }
 ]

@@ -49,13 +49,6 @@ module.exports = [
         from: "ATM CASH DEPOSIT"
     },
     {
-        transactionDate: "2021-02-11",
-        transactionName: "Mani/Pedi",
-        type: "Expense",
-        amount: 50.16,
-        from: "SHANA NAILS"
-    },
-    {
         transactionDate: "2021-02-12",
         transactionName: "Dinner with Mami",
         type: "Expense",

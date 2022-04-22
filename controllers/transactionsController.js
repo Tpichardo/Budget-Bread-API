@@ -3,7 +3,8 @@ const {
     getTransactionsByUserId,
     getTransactionById,
     addTransaction,
-    updateTransaction
+    updateTransaction,
+    deleteTransaction
 } = require('../queries/transactionsQueries');
 
 const transactions = express.Router();
@@ -55,6 +56,19 @@ transactions.put('/:id', async (req, res) => {
         const updatedTransaction = await updateTransaction(id, req.body);
         if (updatedTransaction.id) {
             res.json(updatedTransaction);
+        }
+    } catch (error) {
+        res.status(404).json({ error: error });
+    }
+});
+
+
+transactions.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedTransaction = await deleteTransaction(id);
+        if (deletedTransaction.id) {
+            res.json(deletedTransaction);
         }
     } catch (error) {
         res.status(404).json({ error: error });

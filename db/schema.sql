@@ -10,5 +10,5 @@ CREATE TABLE transactions (
     transaction_name TEXT NOT NULL,
     transaction_type TEXT NOT NULL, 
     transaction_amount NUMERIC NOT NULL,
-    vendor TEXT NOT NULL
+    transaction_vendor TEXT NOT NULL
 );

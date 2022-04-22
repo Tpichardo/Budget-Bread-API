@@ -42,10 +42,20 @@ const updateTransaction = async (id, transaction) => {
     }
 };
 
+const deleteTransaction = async (id) => {
+    try {
+        const deletedSong = await db.one("DELETE FROM transactions WHERE id=$1 RETURNING * ", id);
+        return deletedSong;
+    } catch (error) {
+        return error;
+    }
+};
+
 
 module.exports = {
     getTransactionsByUserId,
     getTransactionById,
     addTransaction,
-    updateTransaction
+    updateTransaction,
+    deleteTransaction
 };

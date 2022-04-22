@@ -1,14 +1,17 @@
 const express = require('express');
 const getTransactionsByUserId = require('../queries/transactionsQueries');
-// const transactionsArr = require('../models/transactions');
 
 const transactions = express.Router();
 
 
 transactions.get('/', async (req, res) => {
-    const { userId } = req.query
-    const transactions = getTransactionsByUserId(userId);
-    res.json(transactions);
+    try {
+        const { currentUserId } = req.query;
+        const transactions = await getTransactionsByUserId(currentUserId);
+        res.json(transactions);
+    } catch (error) {
+        return error;
+    }
 });
 
 transactions.get('/:index', (req, res) => {

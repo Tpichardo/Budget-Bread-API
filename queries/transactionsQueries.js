@@ -7,6 +7,18 @@ const getTransactionsByUserId = async (currentUserId) => {
     } catch (error) {
         return error;
     }
-}
+};
 
-module.exports = getTransactionsByUserId;
+const getTransactionById = async (id) => {
+    try {
+        const transaction = await db.one("SELECT * FROM transactions WHERE id = $1", id);
+        return transaction;
+    } catch (error) {
+        return error;
+    }
+};
+
+module.exports = {
+    getTransactionsByUserId,
+    getTransactionById
+};

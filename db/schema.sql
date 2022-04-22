@@ -5,10 +5,10 @@ CREATE DATABASE bread;
 
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
-    user_id TEXT NOT NULL,
+    current_user_id TEXT NOT NULL,
     transaction_date DATE NOT NULL,
     transaction_name TEXT NOT NULL,
     transaction_type TEXT NOT NULL, 
-    transaction_amount DECIMAL NOT NULL,
+    transaction_amount NUMERIC NOT NULL,
     vendor TEXT NOT NULL
 );

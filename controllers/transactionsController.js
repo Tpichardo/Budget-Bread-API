@@ -1,11 +1,11 @@
 const express = require('express');
 const {
     getTransactionsByUserId,
-    getTransactionById
+    getTransactionById,
+    addTransaction
 } = require('../queries/transactionsQueries');
 
 const transactions = express.Router();
-
 
 transactions.get('/', async (req, res) => {
     try {
@@ -29,6 +29,20 @@ transactions.get('/:id', async (req, res) => {
         }
     } catch (error) {
         res.status(404).json({ error: "Transaction not found.", message: error });
+    }
+});
+
+transactions.post('/', async (req, res) => {
+    try {
+        const newTransaction = await addTransaction(req.body);
+        if (newTransaction.id) {
+            res.json(newTransaction);
+        } else {
+            console.log(req.body)
+            throw `Error adding ${req.body} to the database.`;
+        }
+    } catch (error) {
+        res.status(404).json({ error: error });
     }
 });
 

@@ -4,7 +4,9 @@
   "description": "A budgeting app API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db_seed": "psql -U postgres -f db/seed.sql",
+    "db_schema": "psql -U postgres -f db/schema.sql"
   },
   "repository": {
     "type": "git",

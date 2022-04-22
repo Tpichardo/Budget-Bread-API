@@ -1,4 +1,4 @@
-\c bread 
+\c bread; 
 
 INSERT INTO transactions (user_id, transaction_date, transaction_name, transaction_type, transaction_amount, vendor)VALUES
 ('uO27zaQLsxYDB3pSRRlsPHAcIkA3', '2021-01-26', 'Birthday', 'Deposit', 2000.00, 'Zelle payment from EDISON PICHARDO'),

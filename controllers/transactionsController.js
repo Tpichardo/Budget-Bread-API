@@ -2,7 +2,8 @@ const express = require('express');
 const {
     getTransactionsByUserId,
     getTransactionById,
-    addTransaction
+    addTransaction,
+    updateTransaction
 } = require('../queries/transactionsQueries');
 
 const transactions = express.Router();
@@ -33,8 +34,9 @@ transactions.get('/:id', async (req, res) => {
 });
 
 transactions.post('/', async (req, res) => {
+    const { currentUserId } = req.query;
     try {
-        const newTransaction = await addTransaction(req.body);
+        const newTransaction = await addTransaction(req.body, currentUserId);
         if (newTransaction.id) {
             res.json(newTransaction);
         } else {
@@ -45,5 +47,19 @@ transactions.post('/', async (req, res) => {
         res.status(404).json({ error: error });
     }
 });
+
+transactions.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        console.log(req.body)
+        const updatedTransaction = await updateTransaction(id, req.body);
+        if (updatedTransaction.id) {
+            res.json(updatedTransaction);
+        }
+    } catch (error) {
+        res.status(404).json({ error: error });
+    }
+});
+
 
 module.exports = transactions;

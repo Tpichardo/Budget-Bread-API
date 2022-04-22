@@ -4,11 +4,6 @@ const transactionsController = require('./controllers/transactionsController')
 
 const app = express();
 
-
-//Middleware
-
-// this allows any app/site from anywhere access your API. 
-// This is a great way to start to get things up and running. Later, add restrictions, as needed.
 app.use(cors());
 app.use(express.json());
 app.use('/transactions', transactionsController)

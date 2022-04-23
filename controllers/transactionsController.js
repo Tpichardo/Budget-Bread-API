@@ -52,7 +52,6 @@ transactions.post('/', async (req, res) => {
 transactions.put('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        console.log(req.body)
         const updatedTransaction = await updateTransaction(id, req.body);
         if (updatedTransaction.id) {
             res.json(updatedTransaction);

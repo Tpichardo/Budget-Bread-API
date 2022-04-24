@@ -35,9 +35,8 @@ transactions.get('/:id', async (req, res) => {
 });
 
 transactions.post('/', async (req, res) => {
-    const { currentUserId } = req.query;
     try {
-        const newTransaction = await addTransaction(req.body, currentUserId);
+        const newTransaction = await addTransaction(req.body);
         if (newTransaction.id) {
             res.json(newTransaction);
         } else {

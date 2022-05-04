@@ -11,8 +11,8 @@ const transactions = express.Router();
 
 transactions.get('/', async (req, res) => {
     try {
-        const { currentUserId } = req.query;
-        const transactions = await getTransactionsByUserId(currentUserId);
+        const { current_user_id } = req.query;
+        const transactions = await getTransactionsByUserId(current_user_id);
         res.json(transactions);
     } catch (error) {
         return error;

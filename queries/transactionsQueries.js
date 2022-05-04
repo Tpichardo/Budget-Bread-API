@@ -1,8 +1,8 @@
 const db = require('../db/dbConfig.js');
 
-const getTransactionsByUserId = async (currentUserId) => {
+const getTransactionsByUserId = async (current_user_id) => {
     try {
-        const userTransactions = await db.any("SELECT * FROM transactions WHERE current_user_id = $1", currentUserId);
+        const userTransactions = await db.any("SELECT * FROM transactions WHERE current_user_id = $1", current_user_id);
         return userTransactions;
     } catch (error) {
         return error;

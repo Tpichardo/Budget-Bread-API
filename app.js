@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("Welcome to the budgeting app!");
+    res.send("Welcome to the budgeting app API!");
 });
 
 app.use('/transactions', transactionsController);

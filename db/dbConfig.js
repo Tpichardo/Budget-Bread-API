@@ -10,6 +10,8 @@ const {
     PG_PASSWORD
 } = process.env
 
+console.log(DATABASE_URL)
+console.log(PG_HOST)
 const cn = DATABASE_URL ?
     {
         connectionString: DATABASE_URL,

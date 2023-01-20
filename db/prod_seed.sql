@@ -1,4 +1,4 @@
-\c dfd1pjbkvsrug9; 
+\c bread_db_mimj; 
 
 INSERT INTO transactions (current_user_id, transaction_date, transaction_name, transaction_type, transaction_amount, transaction_vendor)VALUES
 ('uO27zaQLsxYDB3pSRRlsPHAcIkA3', '2021-01-26', 'Birthday', 'Deposit', 2000.00, 'Zelle payment from EDISON PICHARDO'),

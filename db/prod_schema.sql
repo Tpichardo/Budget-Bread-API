@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS dfd1pjbkvsrug9;
-CREATE DATABASE dfd1pjbkvsrug9;
+DROP DATABASE IF EXISTS bread_db_mimj;
+CREATE DATABASE bread_db_mimj;
 
-\c dfd1pjbkvsrug9;
+\c bread_db_mimj;
 
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,

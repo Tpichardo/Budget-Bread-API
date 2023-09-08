@@ -2,7 +2,7 @@
 
 API for budgeting application
 
-[Live API](https://budget-bread-api.onrender.com)
+[Live API](https://budget-bread.fly.dev)
 
 ## API Endpoints
 

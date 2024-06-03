@@ -27,12 +27,16 @@ const isvalidTransaction = (transaction) => {
 
 	for (let field in transaction) {
 		if (!TRANSACTION_FIELDS[field]) {
-			console.log(field, "here");
 			return false;
 		}
 	}
 
 	return true;
+};
+
+const isValidId = (id) => {
+	const idAsNum = Number(id);
+	return Number.isInteger(idAsNum) && idAsNum > 0;
 };
 
 transactions.get("/", async (req, res) => {
@@ -46,17 +50,22 @@ transactions.get("/", async (req, res) => {
 });
 
 transactions.get("/:id", async (req, res) => {
-	const { id } = req.params;
 	try {
-		const transaction = await getTransactionById(id);
-		if (transaction.id) {
-			return res.json(transaction);
-		} else {
-			console.log(`Database error: ${transaction}`);
-			throw `There is no transaction with id: ${id}`;
+		const { id } = req.params;
+		if (!isValidId(id)) {
+			return res
+				.status(400)
+				.json({ error: `the id must be a positive integer, received ${id}` });
 		}
+		const transaction = await getTransactionById(id);
+		if (!transaction) {
+			return res
+				.status(404)
+				.json({ error: `could not find student with id: ${id}` });
+		}
+		res.status(200).json({ data: transaction });
 	} catch (error) {
-		res.status(404).json({ error: "Transaction not found.", message: error });
+		res.status(500).json({ error: error.message });
 	}
 });
 
@@ -78,26 +87,50 @@ transactions.post("/", async (req, res) => {
 });
 
 transactions.put("/:id", async (req, res) => {
-	const { id } = req.params;
 	try {
-		const updatedTransaction = await updateTransaction(id, req.body);
-		if (updatedTransaction.id) {
-			res.json(updatedTransaction);
+		const { id } = req.params;
+		const transaction = req.body;
+
+		if (!isValidId(id)) {
+			return res
+				.status(400)
+				.json({ error: `the id must be a positive integer, received ${id}` });
 		}
+
+		if (!isvalidTransaction(transaction)) {
+			return res.status(400).json({
+				error: `transaction must only have fields: ${Object.keys(
+					TRANSACTION_FIELDS
+				).join(", ")}`,
+			});
+		}
+		const updatedTransaction = await updateTransaction(id, req.body);
+		if (!updatedTransaction) {
+			return res
+				.status(404)
+				.json({ error: `could not find student with id: ${id}` });
+		}
+		res.status(200).json({ data: updateTransaction });
 	} catch (error) {
-		res.status(404).json({ error: error });
+		res.status(500).json({ error: error.message });
 	}
 });
 
 transactions.delete("/:id", async (req, res) => {
-	const { id } = req.params;
 	try {
-		const deletedTransaction = await deleteTransaction(id);
-		if (deletedTransaction.id) {
-			res.json(deletedTransaction);
+		const { id } = req.params;
+		if (!isValidId(id)) {
+			return res
+				.status(400)
+				.json({ error: `the id must be a positive integer, received ${id}` });
 		}
+		const deletedTransaction = await deleteTransaction(id);
+		if (!deletedTransaction) {
+			res.status(404).json({ error: `could not find student with id: ${id}` });
+		}
+		res.status(200).json({ data: deletedTransaction });
 	} catch (error) {
-		res.status(404).json({ error: error });
+		res.status(500).json({ error: error.message });
 	}
 });
 

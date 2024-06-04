@@ -9,7 +9,7 @@ const getTransactionsByUserId = async (current_user_id) => {
 };
 
 const getTransactionById = async (id) => {
-	const transaction = await db.one(
+	const transaction = await db.oneOrNone(
 		"SELECT * FROM transactions WHERE id = $1",
 		id
 	);
@@ -17,7 +17,7 @@ const getTransactionById = async (id) => {
 };
 
 const addTransaction = async (transaction) => {
-	const newTransaction = await db.one(
+	const newTransaction = await db.oneOrNone(
 		"INSERT INTO transactions (current_user_id, transaction_date, transaction_name, transaction_type, transaction_amount, Transaction_vendor) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
 		[
 			transaction.current_user_id,
@@ -32,7 +32,7 @@ const addTransaction = async (transaction) => {
 };
 
 const updateTransaction = async (id, transaction) => {
-	const updatedTransaction = await db.one(
+	const updatedTransaction = await db.oneOrNone(
 		"UPDATE transactions SET current_user_id=$1, transaction_date=$2, transaction_name=$3, transaction_type=$4, transaction_amount=$5, transaction_vendor=$6 where id=$7 RETURNING *",
 		[
 			transaction.current_user_id,
@@ -48,11 +48,11 @@ const updateTransaction = async (id, transaction) => {
 };
 
 const deleteTransaction = async (id) => {
-	const deletedSong = await db.one(
+	const deletedTransaction = await db.oneOrNone(
 		"DELETE FROM transactions WHERE id=$1 RETURNING * ",
 		id
 	);
-	return deletedSong;
+	return deletedTransaction;
 };
 
 module.exports = {

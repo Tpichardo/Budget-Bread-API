@@ -10,6 +10,7 @@ const {
 const transactions = express.Router();
 
 const TRANSACTION_FIELDS = {
+	id: true,
 	current_user_id: true,
 	transaction_amount: true,
 	transaction_date: true,

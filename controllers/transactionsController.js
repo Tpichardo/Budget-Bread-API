@@ -19,8 +19,9 @@ const TRANSACTION_FIELDS = {
 	transaction_vendor: true,
 };
 
-const isvalidTransaction = (transaction) => {
+const isvalidTransaction = (transaction, isNewTransaction = false) => {
 	for (let field in TRANSACTION_FIELDS) {
+		if (isNewTransaction && field === "id") continue;
 		if (!transaction.hasOwnProperty(field)) {
 			return false;
 		}
@@ -73,7 +74,7 @@ transactions.get("/:id", async (req, res) => {
 transactions.post("/", async (req, res) => {
 	try {
 		const transaction = req.body;
-		if (!isvalidTransaction(transaction)) {
+		if (!isvalidTransaction(transaction, true)) {
 			return res.status(400).json({
 				error: `transaction must only have fields: ${Object.keys(
 					TRANSACTION_FIELDS
